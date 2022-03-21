@@ -1,0 +1,16 @@
+# action.yml
+name: 'Hello World with Powershell'
+description: 'Greetings from Powershell'
+inputs:
+  who_to_greet:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+outputs:
+  greeting: # id of output
+    description: 'Our greeting to you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who_to_greet }}
